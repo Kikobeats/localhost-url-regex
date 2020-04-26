@@ -2,7 +2,7 @@
   "name": "is-localhost-url",
   "description": "Check if a URL is from localhost",
   "homepage": "https://nicedoc.io/Kikobeats/is-localhost-url",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "index.js",
   "author": {
     "name": "Kiko Beats",
