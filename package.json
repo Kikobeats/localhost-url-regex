@@ -2,7 +2,7 @@
   "name": "localhost-url-regex",
   "description": "Check if a URL is from localhost",
   "homepage": "https://github.com/Kikobeats/localhost-url-regex",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
