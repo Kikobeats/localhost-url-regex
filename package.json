@@ -1,7 +1,7 @@
 {
   "name": "is-localhost-url",
   "description": "Check if a URL is from localhost",
-  "homepage": "https://nicedoc.io/Kikobeats/is-localhost-url",
+  "homepage": "https://github.com/Kikobeats/is-localhost-url",
   "version": "1.0.3",
   "main": "index.js",
   "author": {
@@ -27,14 +27,14 @@
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
-    "ava": "latest",
+    "c8": "latest",
     "conventional-github-releaser": "latest",
     "coveralls": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
     "git-dirty": "latest",
-    "husky": "latest",
-    "lint-staged": "latest",
+    "simple-git-hooks": "latest",
+    "nano-staged": "latest",
     "npm-check-updates": "latest",
     "nyc": "latest",
     "prettier-standard": "latest",
@@ -48,7 +48,7 @@
   },
   "scripts": {
     "clean": "rm -rf node_modules",
-    "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
+    "contributors": "(npx git-authors-cli && npx finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "standard-markdown README.md && standard",
     "postrelease": "npm run release:tags && npm run release:github && ci-publish",
@@ -57,7 +57,7 @@
     "release": "standard-version -a",
     "release:github": "conventional-github-releaser -p angular",
     "release:tags": "git push --follow-tags origin HEAD:master",
-    "test": "nyc ava",
+    "test": "c8 ava",
     "update": "ncu -u",
     "update:check": "ncu -- --error-level 2"
   },
@@ -67,13 +67,11 @@
       "@commitlint/config-conventional"
     ]
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
+  "simple-git-hooks": {
+  "commit-msg": "npx commitlint --edit",
+  "pre-commit": "npx nano-staged"
+},
+  "nano-staged": {
     "package.json": [
       "finepack"
     ],
