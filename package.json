@@ -1,20 +1,20 @@
 {
-  "name": "is-localhost-url",
+  "name": "localhost-url-regex",
   "description": "Check if a URL is from localhost",
-  "homepage": "https://github.com/Kikobeats/is-localhost-url",
+  "homepage": "https://github.com/Kikobeats/localhost-url-regex",
   "version": "1.0.3",
-  "main": "index.js",
+  "main": "src/index.js",
   "author": {
-    "name": "Kiko Beats",
     "email": "josefrancisco.verdu@gmail.com",
+    "name": "Kiko Beats",
     "url": "https://kikobeats.com"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kikobeats/is-localhost-url.git"
+    "url": "git+https://github.com/Kikobeats/localhost-url-regex.git"
   },
   "bugs": {
-    "url": "https://github.com/Kikobeats/is-localhost-url/issues"
+    "url": "https://github.com/Kikobeats/localhost-url-regex/issues"
   },
   "keywords": [
     "check",
@@ -23,36 +23,36 @@
     "uri",
     "url"
   ],
-  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
+    "ava": "latest",
     "c8": "latest",
+    "ci-publish": "latest",
     "conventional-github-releaser": "latest",
-    "coveralls": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
-    "git-dirty": "latest",
-    "simple-git-hooks": "latest",
     "nano-staged": "latest",
     "npm-check-updates": "latest",
-    "nyc": "latest",
     "prettier-standard": "latest",
+    "simple-git-hooks": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
-    "standard-version": "latest",
-    "ci-publish": "latest"
+    "standard-version": "latest"
   },
   "engines": {
     "node": ">= 10"
   },
+  "files": [
+    "src"
+  ],
   "scripts": {
     "clean": "rm -rf node_modules",
     "contributors": "(npx git-authors-cli && npx finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "standard-markdown README.md && standard",
-    "postrelease": "npm run release:tags && npm run release:github && ci-publish",
-    "prerelease": "npm run update:check && npm run contributors",
+    "postrelease": "npm run release:tags && npm run release:github && (ci-publish || npm publish --access=public)",
+    "prerelease": "npm run update:check",
     "pretest": "npm run lint",
     "release": "standard-version -a",
     "release:github": "conventional-github-releaser -p angular",
@@ -67,19 +67,19 @@
       "@commitlint/config-conventional"
     ]
   },
-  "simple-git-hooks": {
-  "commit-msg": "npx commitlint --edit",
-  "pre-commit": "npx nano-staged"
-},
   "nano-staged": {
-    "package.json": [
-      "finepack"
-    ],
-    "*.js": [
+    "*.js,!*.min.js,": [
       "prettier-standard"
     ],
     "*.md": [
       "standard-markdown"
+    ],
+    "package.json": [
+      "finepack"
     ]
+  },
+  "simple-git-hooks": {
+    "commit-msg": "npx commitlint --edit",
+    "pre-commit": "npx nano-staged"
   }
 }
