@@ -1,6 +1,6 @@
 # localhost-url-regex
 
-> Check if a URL is from localhost
+> Regex for matching localhost alike URLs.
 
 ## Install
 

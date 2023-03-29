@@ -1,6 +1,6 @@
 {
   "name": "localhost-url-regex",
-  "description": "Check if a URL is from localhost",
+  "description": "Regex for matching localhost alike URLs.",
   "homepage": "https://github.com/Kikobeats/localhost-url-regex",
   "version": "1.0.4",
   "main": "src/index.js",
