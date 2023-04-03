@@ -2,7 +2,7 @@
   "name": "localhost-url-regex",
   "description": "Regex for matching localhost alike URLs.",
   "homepage": "https://github.com/Kikobeats/localhost-url-regex",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
