@@ -2,6 +2,10 @@
 
 > Regex for matching localhost alike URLs.
 
+**Note**: There are [Bogon IP address](https://ipinfo.io/bogon) ranges not covered by this regex.
+
+The intention of this package is to cover some of the most common cases.
+
 ## Install
 
 ```bash
