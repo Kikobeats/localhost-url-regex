@@ -6,6 +6,8 @@
 
 The intention of this package is to cover some of the most common cases.
 
+If you need a more sophisticated solution, check [is-localhost-ip](https://github.com/tinovyatkin/is-localhost-ip).
+
 ## Install
 
 ```bash
