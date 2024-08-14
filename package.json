@@ -30,7 +30,7 @@
     "ava": "latest",
     "c8": "latest",
     "ci-publish": "latest",
-    "conventional-github-releaser": "latest",
+    "github-generate-release": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
     "nano-staged": "latest",
@@ -57,7 +57,7 @@
     "pretest": "npm run lint && npm run redos",
     "redos": "redos-detector check $(node -e \"console.log(require('.')().toString())\")",
     "release": "standard-version -a",
-    "release:github": "conventional-github-releaser -p angular",
+    "release:github": "github-generate-release",
     "release:tags": "git push --follow-tags origin HEAD:master",
     "test": "c8 ava",
     "update": "ncu -u",
@@ -67,10 +67,15 @@
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
-    ]
+    ],
+    "rules": {
+      "body-max-line-length": [
+        0
+      ]
+    }
   },
   "nano-staged": {
-    "*.js,!*.min.js,": [
+    "*.js": [
       "prettier-standard",
       "standard --fix"
     ],
