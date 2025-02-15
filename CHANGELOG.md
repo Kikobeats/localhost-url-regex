@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/Kikobeats/is-local-address/compare/v1.0.13...v1.1.0) (2025-02-15)
+
+
+### Features
+
+* support more Bogon IP address cases ([#10](https://github.com/Kikobeats/is-local-address/issues/10)) ([09b5f0e](https://github.com/Kikobeats/is-local-address/commit/09b5f0e28c2e94b3a03b1923d0bfe11076079a36))
+
 ### 1.0.13 (2024-11-27)
 
 ### 1.0.12 (2024-08-14)
