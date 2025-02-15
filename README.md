@@ -1,4 +1,4 @@
-# localhost-url-regex
+# is-local-address
 
 > Regex for matching localhost alike URLs.
 
@@ -11,21 +11,37 @@ If you need a more sophisticated solution, check [is-localhost-ip](https://githu
 ## Install
 
 ```bash
-$ npm install localhost-url-regex --save
+$ npm install is-local-address --save
 ```
 
 ## Usage
 
-```js
-const localhostUrl = require('localhost-url-regex')
+The method exported by default supports IPv4 and IPv6 detection:
 
-localhostUrl().test('http://localhost:3000') // true
-localhostUrl().test('http://example.com') // false
+```js
+const isLocalhost = require('is-localhost')
+
+isLocalhost(new URL('https://127.0.0.1').hostname) // true
+isLocalhost(new URL('http://[::]:3000').hostname) // true
+```
+
+You can also require the specific IPv4:
+
+```js
+const isLocalhost = require('is-localhost/ipv4')
+isLocalhost(new URL('https://127.0.0.1').hostname) // true
+```
+
+or just IPv6:
+
+```js
+const isLocalhost = require('is-localhost/ipv6')
+isLocalhost(new URL('http://[::]:3000').hostname) // true
 ```
 
 ## License
 
-**localhost-url-regex** © [Kiko Beats](https://kikobeats.com), released under the [MIT](https://github.com/Kikobeats/localhost-url-regex/blob/master/LICENSE.md) License.<br>
-Authored and maintained by [Kiko Beats](https://kikobeats.com) with help from [contributors](https://github.com/Kikobeats/localhost-url-regex/contributors).
+**is-local-address** © [Kiko Beats](https://kikobeats.com), released under the [MIT](https://github.com/Kikobeats/is-local-address/blob/master/LICENSE.md) License.<br>
+Authored and maintained by [Kiko Beats](https://kikobeats.com) with help from [contributors](https://github.com/Kikobeats/is-local-address/contributors).
 
 > [kikobeats.com](https://kikobeats.com) · GitHub [Kiko Beats](https://github.com/Kikobeats) · X [@Kikobeats](https://x.com/Kikobeats)

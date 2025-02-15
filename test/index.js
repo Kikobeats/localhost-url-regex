@@ -2,23 +2,18 @@
 
 const test = require('ava')
 
-const localhostUrl = require('..')
+const isLocalhost = require('is-local-address')
 
-test('true', t => {
-  t.true(localhostUrl().test('http://localhost:3000'))
-  t.true(localhostUrl().test('https://localhost:1337'))
-  t.true(localhostUrl().test('https://127.0.0.1:8080'))
-  t.true(localhostUrl().test('http://192.168.4.50:3000/'))
-  t.true(localhostUrl().test('http://10.0.0.0/8/'))
-  t.true(localhostUrl().test('http://127.0.0.1:80'))
-  t.true(localhostUrl().test('http://0.0.0.0:80'))
-  t.true(localhostUrl().test('http://127.0.1.0:80'))
-  t.true(localhostUrl().test('http://[::]:3000/'))
-  t.true(localhostUrl().test('http://[::1]:3000/'))
+const { externalIPs, internalIPs } = require('./cases')
+
+internalIPs.forEach(({ ip }) => {
+  test(`true » ${ip}`, t => {
+    t.true(isLocalhost(ip), ip)
+  })
 })
 
-test('false', t => {
-  t.false(localhostUrl().test('https://example.com'))
-  t.false(localhostUrl().test('http://example.com'))
-  t.false(localhostUrl().test('http://example.com:80'))
+externalIPs.forEach(({ ip }) => {
+  test(`false » ${ip}`, t => {
+    t.false(isLocalhost(ip), ip)
+  })
 })
