@@ -19,24 +19,24 @@ $ npm install is-local-address --save
 The method exported by default supports IPv4 and IPv6 detection:
 
 ```js
-const isLocalhost = require('is-localhost')
+const isLocalAddress = require('is-local-address')
 
-isLocalhost(new URL('https://127.0.0.1').hostname) // true
-isLocalhost(new URL('http://[::]:3000').hostname) // true
+isLocalAddress(new URL('https://127.0.0.1').hostname) // true
+isLocalAddress(new URL('http://[::]:3000').hostname) // true
 ```
 
 You can also require the specific IPv4:
 
 ```js
-const isLocalhost = require('is-localhost/ipv4')
-isLocalhost(new URL('https://127.0.0.1').hostname) // true
+const isLocalAddress = require('is-local-address/ipv4')
+isLocalAddress(new URL('https://127.0.0.1').hostname) // true
 ```
 
 or just IPv6:
 
 ```js
-const isLocalhost = require('is-localhost/ipv6')
-isLocalhost(new URL('http://[::]:3000').hostname) // true
+const isLocalAddress = require('is-local-address/ipv6')
+isLocalAddress(new URL('http://[::]:3000').hostname) // true
 ```
 
 ## License
