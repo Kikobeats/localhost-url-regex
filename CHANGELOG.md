@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.1.0 (2025-02-20)
+
+
+### Features
+
+* improve ipv6 support ([#11](https://github.com/Kikobeats/is-local-address/issues/11)) ([d33b344](https://github.com/Kikobeats/is-local-address/commit/d33b344975d3eef0401b6c288c34b12e81b12642))
+
 ## [2.0.0](https://github.com/Kikobeats/is-local-address/compare/v1.0.13...v2.0.0) (2025-02-15)
 
 
