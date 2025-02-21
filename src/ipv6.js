@@ -27,13 +27,13 @@ const IP_RANGES = [
   /^::1?$/
 ]
 
-const regex = () => new RegExp(`^(${IP_RANGES.map(re => re.source).join('|')})$`)
+const regex = new RegExp(`^(${IP_RANGES.map(re => re.source).join('|')})$`)
 
 module.exports = hostname => {
   if (hostname.startsWith('[') && hostname.endsWith(']')) {
     hostname = hostname.slice(1, -1)
   }
-  return regex().test(hostname)
+  return regex.test(hostname)
 }
 
-module.exports.regex = regex()
+module.exports.regex = regex
