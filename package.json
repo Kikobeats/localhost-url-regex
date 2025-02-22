@@ -13,7 +13,12 @@
     "name": "Kiko Beats",
     "url": "https://kikobeats.com"
   },
-  "contributors": [],
+  "contributors": [
+    {
+      "name": "Sukka",
+      "email": "github@skk.moe"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kikobeats/is-local-address.git"
